@@ -1,0 +1,1214 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Proteja sua vida! — O uso Inteligente dos Smartphones | Fabiana Guimarães</title>
+  <meta name="description" content="E-book gratuito e interativo sobre segurança digital, privacidade e uso inteligente dos smartphones. Edição atualizada 2026 por Fabiana Guimarães." />
+
+  <!-- Meta Tags Open Graph / Pré-visualização Social (LinkedIn, WhatsApp, Instagram) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Proteja sua vida! — O uso Inteligente dos Smartphones" />
+  <meta property="og:description" content="Guia gratuito e interativo com áudio leitor integrado, Passkeys, proteção antifurto e checklist de segurança. Edição 2026 por Fabiana Guimarães." />
+  <meta property="og:image" content="capa-linkedin-proteja-sua-vida.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Proteja sua vida! — O uso Inteligente dos Smartphones" />
+  <meta name="twitter:description" content="Guia gratuito e interativo sobre segurança digital para smartphones. Edição 2026." />
+  <meta name="twitter:image" content="capa-linkedin-proteja-sua-vida.png" />
+
+  <!-- Google Fonts: Inter & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'Inter', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              200: '#bfdbfe',
+              300: '#93c5fd',
+              400: '#60a5fa',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              800: '#1e40af',
+              900: '#1e3a8a',
+              950: '#172554',
+            }
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Estilos Personalizados e Contraste Garantido (Light & Dark Mode) -->
+  <style>
+    :root {
+      --reader-font-size: 16.5px;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      font-size: var(--reader-font-size);
+      line-height: 1.75;
+      transition: background-color 0.25s ease, color 0.25s ease;
+    }
+
+    h1, h2, h3, .font-display {
+      font-family: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+    }
+
+    /* Padrão sutil no cabeçalho Hero */
+    .hero-pattern {
+      background-image: radial-gradient(rgba(37, 99, 235, 0.14) 1px, transparent 1px);
+      background-size: 22px 22px;
+    }
+
+    .dark .hero-pattern {
+      background-image: radial-gradient(rgba(125, 211, 252, 0.14) 1px, transparent 1px);
+    }
+
+    /* Cartão em Degradê de Alto Contraste (3. Passkeys e Destaques) */
+    .callout-gradient-card {
+      background: linear-gradient(135deg, #eff6ff 0%, #e0e7ff 100%);
+      border: 1px solid rgba(37, 99, 235, 0.3);
+      color: #0f172a;
+    }
+
+    .dark .callout-gradient-card {
+      background: linear-gradient(135deg, #172554 0%, #1e1b4b 100%);
+      border: 1px solid rgba(125, 211, 252, 0.45);
+      color: #f8fafc;
+      box-shadow: 0 12px 28px -6px rgba(2, 6, 23, 0.65);
+    }
+
+    /* Destaque do parágrafo sendo lido pelo Áudio Leitor */
+    .speaking-active {
+      background-color: rgba(59, 130, 246, 0.12);
+      border-left: 4px solid #2563eb;
+      padding-left: 1rem;
+      border-radius: 0.75rem;
+      transition: all 0.25s ease;
+    }
+
+    .dark .speaking-active {
+      background-color: rgba(56, 189, 248, 0.16);
+      border-left: 4px solid #38bdf8;
+    }
+
+    /* Barra de rolagem discreta */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(100, 116, 139, 0.35);
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(100, 116, 139, 0.55);
+    }
+
+    /* Estilos de Impressão / Salvar em PDF */
+    @media print {
+      .no-print {
+        display: none !important;
+      }
+      body {
+        background: #ffffff !important;
+        color: #0f172a !important;
+        padding-bottom: 0 !important;
+      }
+      section {
+        break-inside: avoid;
+        box-shadow: none !important;
+        border: 1px solid #cbd5e1 !important;
+      }
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100 antialiased selection:bg-brand-500 selection:text-white pb-28">
+
+  <!-- Barra de Progresso de Leitura no Topo -->
+  <div class="fixed top-0 left-0 right-0 h-1.5 bg-slate-200/70 dark:bg-slate-800 z-50 no-print">
+    <div id="reading-progress" class="h-full bg-gradient-to-r from-brand-500 via-indigo-500 to-emerald-400 transition-all duration-150" style="width: 0%;"></div>
+  </div>
+
+  <!-- Cabeçalho Fixo de Navegação e Acessibilidade -->
+  <header class="sticky top-1.5 z-40 mx-auto max-w-5xl px-3 sm:px-6 no-print">
+    <nav class="mt-2 flex items-center justify-between gap-2 rounded-2xl bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border border-slate-200/80 dark:border-slate-800 px-3.5 py-2.5 shadow-sm">
+      <!-- Botão Abrir Sumário -->
+      <div class="flex items-center gap-2">
+        <button id="toc-toggle-btn" type="button" aria-label="Abrir sumário" class="inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-slate-100 hover:bg-slate-200/80 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 text-xs sm:text-sm font-semibold transition">
+          <svg class="w-4 h-4 text-brand-600 dark:text-sky-400" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h12M4 18h16" />
+          </svg>
+          <span>Sumário</span>
+        </button>
+
+        <span class="hidden md:inline-block text-xs font-medium text-slate-500 dark:text-slate-400 truncate max-w-[230px]">
+          Proteja sua vida! • Edição 2026
+        </span>
+      </div>
+
+      <!-- Controles de Acessibilidade e Leitura -->
+      <div class="flex items-center gap-1.5 sm:gap-2">
+        <!-- Botão de Emergência Rápida -->
+        <button id="emergency-open-btn" type="button" title="Guia rápido em caso de roubo ou perda" class="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-2 rounded-xl bg-rose-50 hover:bg-rose-100 dark:bg-rose-950/80 dark:hover:bg-rose-900/80 text-rose-700 dark:text-rose-300 border border-rose-200/80 dark:border-rose-700/60 text-xs font-bold transition">
+          <span>🚨</span>
+          <span class="hidden sm:inline">Emergência</span>
+        </button>
+
+        <!-- Diminuir / Aumentar Fonte -->
+        <div class="inline-flex items-center rounded-xl bg-slate-100 dark:bg-slate-800 p-0.5 border border-slate-200/60 dark:border-slate-700">
+          <button id="font-dec-btn" type="button" title="Diminuir fonte" class="px-2.5 py-1.5 rounded-lg text-xs font-bold text-slate-700 dark:text-slate-200 hover:bg-white dark:hover:bg-slate-700 transition">
+            A-
+          </button>
+          <button id="font-inc-btn" type="button" title="Aumentar fonte" class="px-2.5 py-1.5 rounded-lg text-xs font-bold text-slate-700 dark:text-slate-200 hover:bg-white dark:hover:bg-slate-700 transition">
+            A+
+          </button>
+        </div>
+
+        <!-- Alternar Modo Claro / Escuro -->
+        <button id="theme-toggle-btn" type="button" title="Alternar tema claro ou escuro" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-slate-100 hover:bg-slate-200/80 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-amber-300 text-xs font-semibold transition">
+          <!-- Ícone Sol (visível no modo escuro) -->
+          <svg id="icon-sun" class="w-4 h-4 hidden dark:block" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="4" />
+            <path stroke-linecap="round" d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41m11.32-11.32l1.41-1.41" />
+          </svg>
+          <!-- Ícone Lua (visível no modo claro) -->
+          <svg id="icon-moon" class="w-4 h-4 block dark:hidden text-slate-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+          </svg>
+          <span class="hidden sm:inline" id="theme-label">Escuro</span>
+        </button>
+
+        <!-- Botão Imprimir / Salvar PDF -->
+        <button onclick="window.print()" type="button" title="Salvar como PDF ou Imprimir" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-brand-600 hover:bg-brand-700 text-white text-xs font-semibold shadow-xs transition">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+          </svg>
+          <span>PDF</span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Gaveta Lateral do Sumário (Drawer) -->
+  <div id="toc-backdrop" class="fixed inset-0 bg-slate-950/60 backdrop-blur-xs z-50 hidden no-print"></div>
+  <aside id="toc-drawer" class="fixed top-0 left-0 bottom-0 w-80 max-w-[85vw] bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 z-50 transform -translate-x-full transition-transform duration-300 flex flex-col justify-between p-5 no-print">
+    <div>
+      <div class="flex items-center justify-between pb-4 border-b border-slate-200 dark:border-slate-800">
+        <div>
+          <span class="text-[11px] font-bold uppercase tracking-wider text-brand-600 dark:text-sky-400">Índice Interativo</span>
+          <h2 class="font-display font-bold text-slate-900 dark:text-white text-lg">Sumário do E-book</h2>
+        </div>
+        <button id="toc-close-btn" type="button" aria-label="Fechar sumário" class="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <nav class="mt-4 space-y-1.5 text-sm">
+        <a href="#introducao" class="toc-link block px-3 py-2.5 rounded-xl hover:bg-brand-50 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200 font-medium transition">
+          Apresentação &amp; Autora
+        </a>
+        <a href="#capitulo-1" class="toc-link block px-3 py-2.5 rounded-xl hover:bg-brand-50 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200 font-medium transition">
+          Cap. 1 — Por que a segurança é vital?
+        </a>
+        <a href="#capitulo-2" class="toc-link block px-3 py-2.5 rounded-xl hover:bg-brand-50 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200 font-medium transition">
+          Cap. 2 — Senhas, Passkeys e Antifurto
+        </a>
+        <a href="#capitulo-3" class="toc-link block px-3 py-2.5 rounded-xl hover:bg-brand-50 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200 font-medium transition">
+          Cap. 3 — Wi-Fi Público, VPN e USB
+        </a>
+        <a href="#capitulo-4" class="toc-link block px-3 py-2.5 rounded-xl hover:bg-brand-50 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200 font-medium transition">
+          Cap. 4 — Apps, Permissões e Golpes IA
+        </a>
+        <a href="#capitulo-5" class="toc-link block px-3 py-2.5 rounded-xl hover:bg-brand-50 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200 font-medium transition">
+          Cap. 5 — Privacidade e Rastreamento
+        </a>
+        <a href="#capitulo-6" class="toc-link block px-3 py-2.5 rounded-xl hover:bg-brand-50 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200 font-medium transition">
+          Cap. 6 — Backup Inteligente (Regra 3-2-1)
+        </a>
+        <a href="#capitulo-7" class="toc-link block px-3 py-2.5 rounded-xl bg-emerald-50/70 dark:bg-emerald-950/50 hover:bg-emerald-100 dark:hover:bg-emerald-900/50 text-emerald-800 dark:text-emerald-300 font-semibold transition">
+          Cap. 7 — Checklist Interativo
+        </a>
+      </nav>
+    </div>
+
+    <div class="pt-4 border-t border-slate-200 dark:border-slate-800 text-xs text-slate-500 dark:text-slate-400">
+      <p class="font-semibold text-slate-700 dark:text-slate-300">Fabiana Silva Guimarães</p>
+      <p class="mt-0.5">Ciência da Computação • Distribuição Gratuita</p>
+    </div>
+  </aside>
+
+  <!-- Conteúdo Principal do E-book -->
+  <main class="mx-auto max-w-4xl px-4 sm:px-6 pt-6 space-y-8">
+
+    <!-- CAPA / HERO -->
+    <section id="introducao" class="hero-pattern relative overflow-hidden rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 p-6 sm:p-10 shadow-sm">
+      <div class="inline-flex flex-wrap items-center gap-2 px-3 py-1.5 rounded-full bg-brand-50 dark:bg-sky-950/80 border border-brand-200/70 dark:border-sky-700/50 text-brand-700 dark:text-sky-300 text-xs font-bold mb-4">
+        <span>🛡️ E-BOOK INTERATIVO GRATUITO</span>
+        <span>•</span>
+        <span>EDIÇÃO ATUALIZADA 2026</span>
+      </div>
+
+      <h1 class="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl text-slate-900 dark:text-white tracking-tight leading-tight">
+        Proteja sua vida!
+        <span class="block text-brand-600 dark:text-sky-400 mt-1 text-2xl sm:text-3xl lg:text-4xl">
+          O uso Inteligente dos Smartphones
+        </span>
+      </h1>
+
+      <p class="mt-4 text-slate-600 dark:text-slate-300 text-base sm:text-lg max-w-2xl leading-relaxed">
+        Um guia prático, acessível e atualizado para proteger suas contas bancárias, conversas, fotos e identidade digital contra golpes modernos, roubos e invasões.
+      </p>
+
+      <!-- Card da Autora e Botões de Ação Rápida -->
+      <div class="mt-6 pt-6 border-t border-slate-200/80 dark:border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div class="flex items-center gap-3.5">
+          <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-brand-600 to-indigo-600 text-white font-display font-extrabold text-lg flex items-center justify-center shadow-sm shrink-0">
+            FG
+          </div>
+          <div>
+            <p class="font-display font-bold text-slate-900 dark:text-white text-sm sm:text-base">
+              Fabiana Silva Guimarães
+            </p>
+            <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">
+              Estudante de Ciência da Computação • Segurança Digital &amp; Privacidade
+            </p>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-2.5 no-print">
+          <button onclick="startFullReading()" type="button" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white text-xs sm:text-sm font-semibold shadow-sm transition">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+            <span>Ouvir E-book Completo</span>
+          </button>
+          <a href="#capitulo-7" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-50 hover:bg-emerald-100 dark:bg-emerald-950/70 dark:hover:bg-emerald-900/70 text-emerald-700 dark:text-emerald-300 border border-emerald-200/80 dark:border-emerald-700/60 text-xs sm:text-sm font-semibold transition">
+            <span>✅ Ir para o Checklist</span>
+          </a>
+          <button onclick="openEmergencyModal()" type="button" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-rose-50 hover:bg-rose-100 dark:bg-rose-950/70 dark:hover:bg-rose-900/70 text-rose-700 dark:text-rose-300 border border-rose-200/80 dark:border-rose-700/60 text-xs sm:text-sm font-semibold transition">
+            <span>🚨 Fui roubado, o que fazer?</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- CAPÍTULO 1 -->
+    <section id="capitulo-1" data-chapter-title="Cap. 1: Por que a segurança é vital?" class="chapter-section bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-10 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-6">
+      <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 dark:border-slate-800 pb-4">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-brand-600 dark:text-sky-400">Capítulo 1</span>
+          <h2 class="font-display font-bold text-xl sm:text-2xl text-slate-900 dark:text-white mt-1">
+            Por que a segurança do smartphone é vital hoje?
+          </h2>
+        </div>
+        <button onclick="playChapterById('capitulo-1')" type="button" class="no-print inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-brand-50 dark:bg-sky-950/70 text-brand-700 dark:text-sky-300 hover:bg-brand-100 dark:hover:bg-sky-900/70 text-xs font-semibold transition">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>
+          <span>Ouvir capítulo</span>
+        </button>
+      </div>
+
+      <p class="speakable text-slate-700 dark:text-slate-300">
+        Hoje, o smartphone deixou de ser apenas um telefone: ele é a nossa <strong>carteira bancária, documento de identidade, chave de acesso ao trabalho e cofre de memórias pessoais</strong>. Quando um aparelho é comprometido, o prejuízo vai muito além do valor do equipamento.
+      </p>
+
+      <div class="grid sm:grid-cols-2 gap-3.5">
+        <div class="speakable p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/75 border border-slate-200/70 dark:border-slate-700/80">
+          <h3 class="font-display font-bold text-slate-900 dark:text-white text-sm sm:text-base">1. Acesso Financeiro Direto</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-300 mt-1">Apps de bancos, Pix, carteiras digitais e corretoras concentram toda a nossa vida financeira na palma da mão.</p>
+        </div>
+        <div class="speakable p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/75 border border-slate-200/70 dark:border-slate-700/80">
+          <h3 class="font-display font-bold text-slate-900 dark:text-white text-sm sm:text-base">2. Roubo de Identidade</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-300 mt-1">Fotos de documentos, CPF, e-mails e acesso ao Gov.br permitem abertura de contas e empréstimos fraudulentos.</p>
+        </div>
+        <div class="speakable p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/75 border border-slate-200/70 dark:border-slate-700/80">
+          <h3 class="font-display font-bold text-slate-900 dark:text-white text-sm sm:text-base">3. Golpes contra Familiares</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-300 mt-1">Ao invadir seu WhatsApp ou Instagram, criminosos se passam por você para pedir dinheiro aos seus contatos.</p>
+        </div>
+        <div class="speakable p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/75 border border-slate-200/70 dark:border-slate-700/80">
+          <h3 class="font-display font-bold text-slate-900 dark:text-white text-sm sm:text-base">4. Rastreamento e Privacidade</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-300 mt-1">Localização em tempo real, microfone e câmera exigem controle rigoroso de permissões para evitar espionagem.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CAPÍTULO 2 -->
+    <section id="capitulo-2" data-chapter-title="Cap. 2: Senhas, Passkeys e Antifurto" class="chapter-section bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-10 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-6">
+      <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 dark:border-slate-800 pb-4">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="text-xs font-bold uppercase tracking-wider text-brand-600 dark:text-sky-400">Capítulo 2</span>
+            <span class="px-2 py-0.5 rounded-md bg-emerald-100 dark:bg-emerald-900/60 text-emerald-800 dark:text-emerald-300 text-[11px] font-bold">Atualizado 2026</span>
+          </div>
+          <h2 class="font-display font-bold text-xl sm:text-2xl text-slate-900 dark:text-white mt-1">
+            Senhas, Bloqueio de Tela e Proteção Antifurto
+          </h2>
+        </div>
+        <button onclick="playChapterById('capitulo-2')" type="button" class="no-print inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-brand-50 dark:bg-sky-950/70 text-brand-700 dark:text-sky-300 hover:bg-brand-100 dark:hover:bg-sky-900/70 text-xs font-semibold transition">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>
+          <span>Ouvir capítulo</span>
+        </button>
+      </div>
+
+      <div class="space-y-5">
+        <!-- Item 1 -->
+        <div class="speakable">
+          <h3 class="font-display font-bold text-slate-900 dark:text-white text-base sm:text-lg mb-1.5">
+            1. Senhas Fortes e Gerenciadores de Senhas
+          </h3>
+          <p class="text-slate-700 dark:text-slate-300">
+            Nunca repita a mesma senha em diferentes sites e evite datas de nascimento ou sequências numéricas ("123456"). Utilize um <strong>Gerenciador de Senhas</strong> confiável como o <em>Bitwarden</em> (gratuito e de código aberto), o <em>Gerenciador de Senhas do Google</em> ou o aplicativo <em>Senhas da Apple</em>. Eles geram e preenchem senhas únicas e longas automaticamente.
+          </p>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="speakable">
+          <h3 class="font-display font-bold text-slate-900 dark:text-white text-base sm:text-lg mb-1.5">
+            2. Biometria e Bloqueio Automático Rápido
+          </h3>
+          <p class="text-slate-700 dark:text-slate-300">
+            Ative impressão digital ou reconhecimento facial seguro acompanhados de um PIN numérico forte (evite desenhos ou padrões na tela, pois marcas de dedo no vidro podem revelar o traço). Ajuste o bloqueio automático da tela para <strong>30 segundos ou 1 minuto</strong>.
+          </p>
+        </div>
+
+        <!-- Item 3: PASSKEYS EM DEGRADÊ DE ALTO CONTRASTE -->
+        <div class="speakable callout-gradient-card p-5 sm:p-6 rounded-2xl space-y-3">
+          <div class="flex flex-wrap items-center gap-2.5">
+            <span class="px-3 py-1 rounded-full bg-brand-600 dark:bg-sky-400 text-white dark:text-slate-950 text-xs font-extrabold tracking-wide shadow-xs">
+              3. Passkeys (Chaves de Acesso sem Senha)
+            </span>
+            <span class="text-xs font-bold text-brand-700 dark:text-emerald-300">
+              Tecnologia Padrão 2026
+            </span>
+          </div>
+          <p class="text-sm sm:text-base text-slate-800 dark:text-slate-100 leading-relaxed">
+            As <strong class="text-brand-800 dark:text-sky-300">Passkeys</strong> substituem as senhas tradicionais pela biometria do seu próprio smartphone (impressão digital ou rosto) usando criptografia avançada. Serviços como Google, Apple, WhatsApp, Mercado Livre e os principais bancos já oferecem suporte nativo.
+          </p>
+          <p class="text-sm text-slate-700 dark:text-slate-200 leading-relaxed">
+            <strong class="text-emerald-700 dark:text-emerald-300">Por que são praticamente invulneráveis?</strong> A Passkey nunca é digitada e nunca sai do seu aparelho. Mesmo que você clique por engano em um link falso (<em>phishing</em>), o golpista não consegue capturar sua chave de acesso.
+          </p>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="speakable">
+          <h3 class="font-display font-bold text-slate-900 dark:text-white text-base sm:text-lg mb-1.5">
+            4. Bloqueio por Detecção de Roubo (Android e iOS)
+          </h3>
+          <p class="text-slate-700 dark:text-slate-300">
+            Ative o <strong>Bloqueio por Detecção de Roubo</strong> no Android (que usa sensores de movimento e IA para travar a tela caso alguém arranque o celular da sua mão) e a <strong>Proteção de Dispositivo Roubado</strong> no iPhone (que exige biometria e atraso de segurança para alterar senhas longe de locais conhecidos).
+          </p>
+        </div>
+
+        <!-- Item 5: Alerta PIN SIM -->
+        <div class="speakable p-4 sm:p-5 rounded-2xl bg-rose-50 dark:bg-rose-950/65 border border-rose-200 dark:border-rose-700/70 space-y-1.5">
+          <h3 class="font-display font-bold text-rose-900 dark:text-rose-200 text-base">
+            5. Ative o PIN do Chip SIM (Essencial!)
+          </h3>
+          <p class="text-sm text-rose-900/90 dark:text-rose-100 leading-relaxed">
+            Se roubarem seu celular e colocarem seu chip físico em outro aparelho, criminosos podem receber seus códigos de recuperação por SMS. Vá em <em>Configurações &gt; Segurança &gt; Bloqueio do cartão SIM</em> e defina um PIN pessoal (troque o padrão "1234" ou "0000" da operadora e anote o código PUK em local seguro).
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CAPÍTULO 3 -->
+    <section id="capitulo-3" data-chapter-title="Cap. 3: Wi-Fi Público, VPN e USB" class="chapter-section bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-10 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-6">
+      <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 dark:border-slate-800 pb-4">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-brand-600 dark:text-sky-400">Capítulo 3</span>
+          <h2 class="font-display font-bold text-xl sm:text-2xl text-slate-900 dark:text-white mt-1">
+            Conexões Wi-Fi Públicas, Redes e Carregamento Seguro
+          </h2>
+        </div>
+        <button onclick="playChapterById('capitulo-3')" type="button" class="no-print inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-brand-50 dark:bg-sky-950/70 text-brand-700 dark:text-sky-300 hover:bg-brand-100 dark:hover:bg-sky-900/70 text-xs font-semibold transition">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>
+          <span>Ouvir capítulo</span>
+        </button>
+      </div>
+
+      <ul class="space-y-3.5">
+        <li class="speakable p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/75 border border-slate-200/70 dark:border-slate-700/80 text-slate-700 dark:text-slate-200 text-sm sm:text-base">
+          <strong class="text-slate-900 dark:text-white">Evite operações bancárias em Wi-Fi aberto:</strong> Redes de aeroportos, shoppings e cafeterias podem ser interceptadas por atacantes na mesma rede. Prefira sempre usar os seus dados móveis (4G/5G) para acessar bancos.
+        </li>
+        <li class="speakable p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/75 border border-slate-200/70 dark:border-slate-700/80 text-slate-700 dark:text-slate-200 text-sm sm:text-base">
+          <strong class="text-slate-900 dark:text-white">Use VPN confiável e DNS Seguro:</strong> Em viagens ou redes públicas, ative uma VPN reconhecida (como Proton VPN ou Mullvad) para criptografar o tráfego. Configure também servidores de <strong>DNS seguros</strong> com endereços numéricos confiáveis como <code>1.1.1.1</code> (Cloudflare) ou <code>9.9.9.9</code> (Quad9) para bloquear domínios maliciosos.
+        </li>
+        <li class="speakable p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/75 border border-slate-200/70 dark:border-slate-700/80 text-slate-700 dark:text-slate-200 text-sm sm:text-base">
+          <strong class="text-slate-900 dark:text-white">Desative a conexão automática de Wi-Fi e Bluetooth:</strong> Isso impede que seu aparelho se conecte sozinho a redes falsas criadas com nomes parecidos aos de locais públicos.
+        </li>
+        <li class="speakable p-4 sm:p-5 rounded-2xl bg-amber-50 dark:bg-amber-950/60 border border-amber-200 dark:border-amber-700/70 text-sm text-amber-950 dark:text-amber-100">
+          <strong class="text-amber-800 dark:text-amber-300">⚡ Cuidado com portas USB públicas (Juice Jacking):</strong> Nunca conecte o cabo do celular diretamente em tomadas USB públicas de rodoviárias, aeroportos ou hotéis — elas podem transmitir dados maliciosos além de energia. Use o seu próprio carregador na tomada elétrica ou um <em>bloqueador de dados USB</em>.
+        </li>
+      </ul>
+    </section>
+
+    <!-- CAPÍTULO 4 -->
+    <section id="capitulo-4" data-chapter-title="Cap. 4: Apps, Permissões e Golpes IA" class="chapter-section bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-10 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-6">
+      <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 dark:border-slate-800 pb-4">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-brand-600 dark:text-sky-400">Capítulo 4</span>
+          <h2 class="font-display font-bold text-xl sm:text-2xl text-slate-900 dark:text-white mt-1">
+            Aplicativos, Permissões e Golpes Modernos com IA
+          </h2>
+        </div>
+        <button onclick="playChapterById('capitulo-4')" type="button" class="no-print inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-brand-50 dark:bg-sky-950/70 text-brand-700 dark:text-sky-300 hover:bg-brand-100 dark:hover:bg-sky-900/70 text-xs font-semibold transition">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>
+          <span>Ouvir capítulo</span>
+        </button>
+      </div>
+
+      <div class="space-y-4">
+        <div class="speakable">
+          <h3 class="font-display font-bold text-slate-900 dark:text-white text-base sm:text-lg mb-1">
+            1. Instale apenas de lojas oficiais e recuse APKs externos
+          </h3>
+          <p class="text-slate-700 dark:text-slate-300">
+            Baixe aplicativos exclusivamente pela <strong>Google Play Store</strong> ou <strong>Apple App Store</strong>. Golpistas enviam arquivos <code>.APK</code> pelo WhatsApp disfarçados de "comprovante de entrega", "convite de casamento" ou "atualização de banco" para instalar programas maliciosos (<em>trojans</em> bancários) que controlam sua tela remotamente.
+          </p>
+        </div>
+
+        <div class="speakable">
+          <h3 class="font-display font-bold text-slate-900 dark:text-white text-base sm:text-lg mb-1">
+            2. Revise permissões de câmera, microfone e acessibilidade
+          </h3>
+          <p class="text-slate-700 dark:text-slate-300">
+            Um aplicativo de lanterna ou editor de fotos não precisa acessar seus contatos, SMS ou localização em segundo plano. Tenha atenção redobrada à permissão de <strong>Acessibilidade</strong> no Android: softwares espiões usam esse recurso para ler senhas digitadas e autorizar transferências sem o seu consentimento.
+          </p>
+        </div>
+
+        <div class="speakable p-4 sm:p-5 rounded-2xl bg-indigo-50 dark:bg-indigo-950/65 border border-indigo-200 dark:border-indigo-700/70 space-y-1.5">
+          <h3 class="font-display font-bold text-indigo-950 dark:text-indigo-200 text-base">
+            3. Atenção aos Golpes com Inteligência Artificial (Deepfakes de Voz e Vídeo)
+          </h3>
+          <p class="text-sm text-indigo-900 dark:text-indigo-100 leading-relaxed">
+            Hoje, criminosos usam poucos segundos de áudio das redes sociais para clonar a voz de parentes ou chefes pedindo transferências urgentes. <strong>Combine uma palavra-chave secreta com sua família</strong> para confirmar pedidos financeiros fora do comum e sempre ligue de volta por outro canal antes de transferir qualquer valor.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CAPÍTULO 5 -->
+    <section id="capitulo-5" data-chapter-title="Cap. 5: Privacidade e Rastreamento" class="chapter-section bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-10 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-6">
+      <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 dark:border-slate-800 pb-4">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-brand-600 dark:text-sky-400">Capítulo 5</span>
+          <h2 class="font-display font-bold text-xl sm:text-2xl text-slate-900 dark:text-white mt-1">
+            Recursos Essenciais de Privacidade e Rastreamento
+          </h2>
+        </div>
+        <button onclick="playChapterById('capitulo-5')" type="button" class="no-print inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-brand-50 dark:bg-sky-950/70 text-brand-700 dark:text-sky-300 hover:bg-brand-100 dark:hover:bg-sky-900/70 text-xs font-semibold transition">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>
+          <span>Ouvir capítulo</span>
+        </button>
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-4">
+        <div class="speakable p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/75 border border-slate-200/70 dark:border-slate-700/80 space-y-1.5">
+          <h3 class="font-display font-bold text-slate-900 dark:text-white text-base">Encontrar Meu Dispositivo / Buscar</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-300">
+            Mantenha ativado o rastreamento remoto (<em>Encontre Meu Dispositivo</em> no Android ou <em>Buscar iPhone</em> no iOS). Isso permite localizar, tocar alarme, bloquear ou apagar todos os seus dados à distância em caso de perda ou furto.
+          </p>
+        </div>
+        <div class="speakable p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/75 border border-slate-200/70 dark:border-slate-700/80 space-y-1.5">
+          <h3 class="font-display font-bold text-slate-900 dark:text-white text-base">Autenticação em Dois Fatores (2FA)</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-300">
+            Ative a verificação em duas etapas no WhatsApp (PIN de 6 dígitos), no e-mail e nas redes sociais. Prefira aplicativos autenticadores (<em>Google Authenticator, Microsoft Authenticator ou Ente Auth</em>) em vez de códigos por SMS.
+          </p>
+        </div>
+        <div class="speakable p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/75 border border-slate-200/70 dark:border-slate-700/80 space-y-1.5">
+          <h3 class="font-display font-bold text-slate-900 dark:text-white text-base">Pasta Segura &amp; Bloqueio de Apps</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-300">
+            Coloque aplicativos de bancos, corretoras e e-mail principal dentro da <em>Pasta Segura</em> (Samsung), <em>Espaço Privado</em> (Android 15+) ou use o bloqueio nativo por Face ID/Touch ID no iOS para criar uma segunda barreira de proteção.
+          </p>
+        </div>
+        <div class="speakable p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/75 border border-slate-200/70 dark:border-slate-700/80 space-y-1.5">
+          <h3 class="font-display font-bold text-slate-900 dark:text-white text-base">Ocultar Conteúdo na Tela Bloqueada</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-300">
+            Configure o sistema para não exibir o conteúdo das notificações na tela de bloqueio. Assim, ninguém consegue ler códigos de confirmação ou mensagens privadas sem desbloquear o aparelho.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CAPÍTULO 6 -->
+    <section id="capitulo-6" data-chapter-title="Cap. 6: Backup Inteligente (Regra 3-2-1)" class="chapter-section bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-10 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-6">
+      <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 dark:border-slate-800 pb-4">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-brand-600 dark:text-sky-400">Capítulo 6</span>
+          <h2 class="font-display font-bold text-xl sm:text-2xl text-slate-900 dark:text-white mt-1">
+            Backup Inteligente e Recuperação de Dados
+          </h2>
+        </div>
+        <button onclick="playChapterById('capitulo-6')" type="button" class="no-print inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-brand-50 dark:bg-sky-950/70 text-brand-700 dark:text-sky-300 hover:bg-brand-100 dark:hover:bg-sky-900/70 text-xs font-semibold transition">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>
+          <span>Ouvir capítulo</span>
+        </button>
+      </div>
+
+      <p class="speakable text-slate-700 dark:text-slate-300">
+        O backup é o seu plano de contingência definitivo. Se o aparelho sofrer dano físico, roubo ou ataque de sequestro de dados (<em>ransomware</em>), uma cópia atualizada permite restaurar fotos, contatos e conversas sem ceder a extorsões.
+      </p>
+
+      <!-- Caixa Regra 3-2-1 com Alto Contraste no Modo Escuro -->
+      <div class="speakable rounded-2xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-700/70 p-5 sm:p-6 space-y-4">
+        <h3 class="font-display font-bold text-emerald-950 dark:text-emerald-200 text-lg">
+          A Regra 3-2-1 Aplicada ao Smartphone
+        </h3>
+        <div class="grid sm:grid-cols-3 gap-3 text-sm">
+          <div class="p-4 rounded-xl bg-white dark:bg-slate-900 border border-emerald-200/70 dark:border-emerald-800/70">
+            <span class="font-display font-extrabold text-emerald-700 dark:text-emerald-300 text-lg block">3 Cópias</span>
+            <p class="text-slate-700 dark:text-slate-200 mt-1">Os dados originais no smartphone + duas cópias de segurança distintas.</p>
+          </div>
+          <div class="p-4 rounded-xl bg-white dark:bg-slate-900 border border-emerald-200/70 dark:border-emerald-800/70">
+            <span class="font-display font-extrabold text-emerald-700 dark:text-emerald-300 text-lg block">2 Mídias</span>
+            <p class="text-slate-700 dark:text-slate-200 mt-1">Nuvem automática (Google Drive / iCloud) + cópia offline no computador ou HD externo.</p>
+          </div>
+          <div class="p-4 rounded-xl bg-white dark:bg-slate-900 border border-emerald-200/70 dark:border-emerald-800/70">
+            <span class="font-display font-extrabold text-emerald-700 dark:text-emerald-300 text-lg block">1 Protegida</span>
+            <p class="text-slate-700 dark:text-slate-200 mt-1">Backup criptografado com senha forte e conta protegida com 2FA/Passkey.</p>
+          </div>
+        </div>
+      </div>
+
+      <p class="speakable text-slate-700 dark:text-slate-300">
+        <strong>Dica extra para o WhatsApp:</strong> ative o <em>Backup criptografado de ponta a ponta</em> nas configurações de conversas e guarde a senha ou chave de 64 dígitos em seu gerenciador de senhas.
+      </p>
+    </section>
+
+    <!-- CAPÍTULO 7: CHECKLIST INTERATIVO -->
+    <section id="capitulo-7" data-chapter-title="Cap. 7: Checklist Interativo" class="chapter-section bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-10 border-2 border-brand-500/30 dark:border-sky-500/30 shadow-md space-y-6">
+      <div class="flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">Capítulo 7 • Diagnóstico Prático</span>
+          <h2 class="font-display font-bold text-xl sm:text-2xl text-slate-900 dark:text-white mt-1">
+            Checklist Interativo de Segurança
+          </h2>
+          <p class="text-sm text-slate-600 dark:text-slate-300 mt-1">
+            Marque as medidas que você já aplicou no seu smartphone. Seu progresso fica salvo automaticamente neste navegador.
+          </p>
+        </div>
+
+        <button id="reset-checklist-btn" type="button" class="no-print px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs font-semibold transition">
+          Limpar marcações
+        </button>
+      </div>
+
+      <!-- Panorama sobre a atitude dos usuários em relação à segurança -->
+      <div class="speakable p-5 rounded-2xl bg-sky-50/90 dark:bg-sky-950/55 border border-sky-200/80 dark:border-sky-800/70 space-y-2.5">
+        <div class="flex items-center gap-2">
+          <span class="text-base">📊</span>
+          <h3 class="font-display font-bold text-sky-950 dark:text-sky-200 text-sm sm:text-base">
+            Como anda a atitude dos usuários em relação à segurança digital?
+          </h3>
+        </div>
+        <p class="text-sm text-slate-700 dark:text-slate-200 leading-relaxed">
+          Estudos de comportamento digital revelam um contraste preocupante: a maioria das pessoas afirma ter receio de golpes financeiros e invasões, mas ainda mantém <strong>hábitos reativos</strong> — ou seja, só busca configurar medidas de proteção <em>depois</em> de passar por um susto ou prejuízo. A busca pela conveniência (como repetir a mesma senha simples em vários aplicativos, deixar o bloqueio de tela demorado ou aceitar todas as permissões sem ler) continua sendo a principal porta de entrada explorada pelos criminosos.
+        </p>
+        <p class="text-sm text-slate-700 dark:text-slate-200 leading-relaxed">
+          A boa notícia é que <strong>a prevenção não exige conhecimentos avançados de programação</strong>: bastam alguns minutos configurando recursos nativos que já existem no seu aparelho para colocar você à frente de mais de 90% das tentativas de ataque automatizadas. Faça o diagnóstico abaixo e avalie como está a sua postura digital hoje:
+        </p>
+      </div>
+
+      <!-- Medidor de Nível de Proteção + Botão Compartilhar Resultado -->
+      <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700 space-y-3">
+        <div class="flex flex-wrap items-center justify-between gap-2 text-sm font-bold">
+          <span id="security-level-label" class="text-slate-800 dark:text-slate-100">Nível de Proteção: Iniciante (0%)</span>
+          <span id="security-count-label" class="text-brand-600 dark:text-sky-400">0 de 8 concluídos</span>
+        </div>
+        <div class="w-full h-3 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden">
+          <div id="security-meter-bar" class="h-full bg-gradient-to-r from-rose-500 via-amber-400 to-emerald-500 transition-all duration-300" style="width: 0%;"></div>
+        </div>
+        <div class="pt-1 flex flex-wrap items-center justify-between gap-2 no-print">
+          <p id="security-attitude-tip" class="text-xs text-slate-600 dark:text-slate-300">
+            Comece marcando os itens abaixo para avaliar seu nível de proteção atual.
+          </p>
+          <div class="flex items-center gap-2">
+            <button id="share-score-btn" type="button" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold shadow-xs transition">
+              <span>📤 Compartilhar meu resultado</span>
+            </button>
+            <span id="share-score-feedback" class="text-xs font-semibold text-emerald-600 dark:text-emerald-400 hidden">
+              Resultado copiado!
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lista de Verificação -->
+      <div id="checklist-container" class="space-y-2.5">
+        <label class="flex items-start gap-3.5 p-4 rounded-2xl bg-slate-50/80 hover:bg-brand-50/50 dark:bg-slate-800/50 dark:hover:bg-slate-800 border border-slate-200/70 dark:border-slate-700/80 cursor-pointer transition">
+          <input type="checkbox" data-check-id="chk-1" class="security-checkbox mt-1 w-5 h-5 rounded-md accent-brand-600 cursor-pointer shrink-0" />
+          <span class="text-sm sm:text-base text-slate-800 dark:text-slate-200">
+            <strong>Senhas únicas e gerenciador ativo:</strong> Não repito senhas importantes e uso um gerenciador confiável.
+          </span>
+        </label>
+
+        <label class="flex items-start gap-3.5 p-4 rounded-2xl bg-slate-50/80 hover:bg-brand-50/50 dark:bg-slate-800/50 dark:hover:bg-slate-800 border border-slate-200/70 dark:border-slate-700/80 cursor-pointer transition">
+          <input type="checkbox" data-check-id="chk-2" class="security-checkbox mt-1 w-5 h-5 rounded-md accent-brand-600 cursor-pointer shrink-0" />
+          <span class="text-sm sm:text-base text-slate-800 dark:text-slate-200">
+            <strong>Passkeys ativadas:</strong> Configurei chaves de acesso sem senha na minha conta Google, Apple ou WhatsApp.
+          </span>
+        </label>
+
+        <label class="flex items-start gap-3.5 p-4 rounded-2xl bg-slate-50/80 hover:bg-brand-50/50 dark:bg-slate-800/50 dark:hover:bg-slate-800 border border-slate-200/70 dark:border-slate-700/80 cursor-pointer transition">
+          <input type="checkbox" data-check-id="chk-3" class="security-checkbox mt-1 w-5 h-5 rounded-md accent-brand-600 cursor-pointer shrink-0" />
+          <span class="text-sm sm:text-base text-slate-800 dark:text-slate-200">
+            <strong>PIN do Chip SIM configurado:</strong> O bloqueio do cartão SIM está ativo com um PIN diferente do padrão da operadora.
+          </span>
+        </label>
+
+        <label class="flex items-start gap-3.5 p-4 rounded-2xl bg-slate-50/80 hover:bg-brand-50/50 dark:bg-slate-800/50 dark:hover:bg-slate-800 border border-slate-200/70 dark:border-slate-700/80 cursor-pointer transition">
+          <input type="checkbox" data-check-id="chk-4" class="security-checkbox mt-1 w-5 h-5 rounded-md accent-brand-600 cursor-pointer shrink-0" />
+          <span class="text-sm sm:text-base text-slate-800 dark:text-slate-200">
+            <strong>Proteção Antifurto ativada:</strong> Bloqueio por Detecção de Roubo (Android) ou Proteção de Dispositivo Roubado (iOS) ligado.
+          </span>
+        </label>
+
+        <label class="flex items-start gap-3.5 p-4 rounded-2xl bg-slate-50/80 hover:bg-brand-50/50 dark:bg-slate-800/50 dark:hover:bg-slate-800 border border-slate-200/70 dark:border-slate-700/80 cursor-pointer transition">
+          <input type="checkbox" data-check-id="chk-5" class="security-checkbox mt-1 w-5 h-5 rounded-md accent-brand-600 cursor-pointer shrink-0" />
+          <span class="text-sm sm:text-base text-slate-800 dark:text-slate-200">
+            <strong>Verificação em Duas Etapas (2FA):</strong> Ativei o PIN no WhatsApp e uso aplicativo autenticador nas contas principais.
+          </span>
+        </label>
+
+        <label class="flex items-start gap-3.5 p-4 rounded-2xl bg-slate-50/80 hover:bg-brand-50/50 dark:bg-slate-800/50 dark:hover:bg-slate-800 border border-slate-200/70 dark:border-slate-700/80 cursor-pointer transition">
+          <input type="checkbox" data-check-id="chk-6" class="security-checkbox mt-1 w-5 h-5 rounded-md accent-brand-600 cursor-pointer shrink-0" />
+          <span class="text-sm sm:text-base text-slate-800 dark:text-slate-200">
+            <strong>Navegação e Carregamento Seguros:</strong> Não uso bancos em Wi-Fi público e evito portas USB públicas sem bloqueador de dados.
+          </span>
+        </label>
+
+        <label class="flex items-start gap-3.5 p-4 rounded-2xl bg-slate-50/80 hover:bg-brand-50/50 dark:bg-slate-800/50 dark:hover:bg-slate-800 border border-slate-200/70 dark:border-slate-700/80 cursor-pointer transition">
+          <input type="checkbox" data-check-id="chk-7" class="security-checkbox mt-1 w-5 h-5 rounded-md accent-brand-600 cursor-pointer shrink-0" />
+          <span class="text-sm sm:text-base text-slate-800 dark:text-slate-200">
+            <strong>Rastreamento Remoto e Tela Bloqueada:</strong> "Encontrar Meu Dispositivo" ativo e conteúdo de notificações oculto na tela bloqueada.
+          </span>
+        </label>
+
+        <label class="flex items-start gap-3.5 p-4 rounded-2xl bg-slate-50/80 hover:bg-brand-50/50 dark:bg-slate-800/50 dark:hover:bg-slate-800 border border-slate-200/70 dark:border-slate-700/80 cursor-pointer transition">
+          <input type="checkbox" data-check-id="chk-8" class="security-checkbox mt-1 w-5 h-5 rounded-md accent-brand-600 cursor-pointer shrink-0" />
+          <span class="text-sm sm:text-base text-slate-800 dark:text-slate-200">
+            <strong>Backup Automático Criptografado:</strong> Minhas fotos, contatos e conversas do WhatsApp têm backup atualizado e protegido.
+          </span>
+        </label>
+      </div>
+    </section>
+
+    <!-- RODAPÉ / CRÉDITOS -->
+    <footer class="rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 p-6 sm:p-8 text-center space-y-3">
+      <p class="font-display font-bold text-slate-900 dark:text-white text-base sm:text-lg">
+        Proteja sua vida! — O uso Inteligente dos Smartphones
+      </p>
+      <p class="text-sm text-slate-600 dark:text-slate-300 max-w-xl mx-auto">
+        Escrito por <a href="https://www.linkedin.com/search/results/all/?keywords=Fabiana%20Silva%20Guimar%C3%A3es" target="_blank" rel="noopener noreferrer" class="font-bold text-brand-600 dark:text-sky-400 hover:underline">Fabiana Silva Guimarães</a> • Estudante de Ciência da Computação. Compartilhe este guia gratuito com amigos e familiares para fortalecer a cultura de segurança digital.
+      </p>
+      <div class="pt-2 flex flex-wrap items-center justify-center gap-2.5 no-print">
+        <a href="https://www.linkedin.com/search/results/all/?keywords=Fabiana%20Silva%20Guimar%C3%A3es" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#0A66C2] hover:bg-[#004182] text-white text-xs font-semibold shadow-xs transition">
+          <span>💼 Conectar no LinkedIn</span>
+        </a>
+        <button id="copy-link-btn" type="button" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 text-xs font-semibold transition">
+          <span>🔗 Copiar link deste E-book</span>
+        </button>
+        <span id="copy-feedback" class="text-xs font-semibold text-emerald-600 dark:text-emerald-400 hidden">
+          Link copiado!
+        </span>
+      </div>
+    </footer>
+  </main>
+
+  <!-- MODAL DE EMERGÊNCIA: FUI ROUBADO, O QUE FAZER AGORA? -->
+  <div id="emergency-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-950/75 backdrop-blur-xs no-print" role="dialog" aria-modal="true" aria-labelledby="emergency-modal-title">
+    <div class="w-full max-w-2xl max-h-[88vh] overflow-y-auto rounded-3xl bg-white dark:bg-slate-900 border border-rose-200 dark:border-rose-800/80 shadow-2xl p-6 sm:p-8 space-y-5">
+      <div class="flex items-start justify-between gap-4 border-b border-slate-200 dark:border-slate-800 pb-4">
+        <div>
+          <span class="px-2.5 py-1 rounded-full bg-rose-100 dark:bg-rose-950 text-rose-700 dark:text-rose-300 text-xs font-extrabold uppercase tracking-wide">
+            🚨 Protocolo de Resposta Rápida
+          </span>
+          <h2 id="emergency-modal-title" class="font-display font-extrabold text-xl sm:text-2xl text-slate-900 dark:text-white mt-2">
+            Celular roubado ou perdido: o que fazer nos primeiros 15 minutos
+          </h2>
+        </div>
+        <button id="emergency-close-btn" type="button" aria-label="Fechar janela de emergência" class="p-2 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <ol class="space-y-3.5 text-sm sm:text-base text-slate-700 dark:text-slate-200">
+        <li class="p-4 rounded-2xl bg-rose-50/80 dark:bg-rose-950/50 border border-rose-200/80 dark:border-rose-800/60">
+          <strong class="text-rose-800 dark:text-rose-300 block">1. Bloqueie ou apague o aparelho remotamente:</strong>
+          De outro celular ou computador, acesse <strong>google.com/android/find</strong> (Android) ou <strong>icloud.com/find</strong> (iPhone) e ative o bloqueio imediato ou a limpeza remota dos dados.
+        </li>
+        <li class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700">
+          <strong class="text-slate-900 dark:text-white block">2. Ligue para seus bancos e bloqueie contas e cartões:</strong>
+          Entre em contato com a central de atendimento dos seus bancos (de preferência pelo telefone fixo ou celular de um familiar) para suspender o acesso ao aplicativo e bloquear chaves Pix e cartões.
+        </li>
+        <li class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700">
+          <strong class="text-slate-900 dark:text-white block">3. Bloqueie a linha e o IMEI na operadora:</strong>
+          Ligue para sua operadora (Vivo: *8486 / 1058 | Claro: 1052 | TIM: *144 / 1056) para suspender o chip imediatamente e impedir o recebimento de SMS de recuperação.
+        </li>
+        <li class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700">
+          <strong class="text-slate-900 dark:text-white block">4. Altere a senha do e-mail principal e avise contatos:</strong>
+          Troque a senha da sua conta Google/Apple e avise familiares próximos para ignorarem pedidos de dinheiro enviados pelo seu número.
+        </li>
+        <li class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700">
+          <strong class="text-slate-900 dark:text-white block">5. Registre o Boletim de Ocorrência e use o Celular Seguro:</strong>
+          Faça o B.O. online na delegacia virtual do seu estado e, se tiver cadastro no programa <strong>Celular Seguro (Gov.br)</strong>, emita o alerta de bloqueio integrado.
+        </li>
+      </ol>
+
+      <div class="pt-2 flex justify-end">
+        <button id="emergency-done-btn" type="button" class="px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 dark:bg-sky-500 dark:hover:bg-sky-400 text-white dark:text-slate-950 text-xs sm:text-sm font-bold transition">
+          Entendi, fechar guia
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- BARRA FLUTUANTE DO ÁUDIO LEITOR (TTS) -->
+  <div id="audio-player-bar" class="fixed bottom-3 left-3 right-3 mx-auto max-w-4xl z-40 rounded-2xl bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border border-slate-200 dark:border-slate-700 shadow-xl px-4 py-3 no-print">
+    <div class="flex flex-wrap items-center justify-between gap-3">
+      <!-- Status da Leitura -->
+      <div class="flex items-center gap-3 min-w-0 flex-1">
+        <div class="w-9 h-9 rounded-xl bg-brand-600 dark:bg-sky-500 text-white dark:text-slate-950 flex items-center justify-center shrink-0">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" />
+          </svg>
+        </div>
+        <div class="min-w-0">
+          <p class="text-[11px] font-bold uppercase tracking-wider text-brand-600 dark:text-sky-400">
+            Áudio Leitor Integrado
+          </p>
+          <p id="audio-status-text" class="text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-200 truncate">
+            Pronto para narrar • Clique em Ouvir
+          </p>
+        </div>
+      </div>
+
+      <!-- Controles do Player -->
+      <div class="flex items-center gap-2">
+        <button id="audio-play-pause-btn" type="button" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-brand-600 hover:bg-brand-700 dark:bg-sky-500 dark:hover:bg-sky-400 text-white dark:text-slate-950 text-xs font-bold shadow-xs transition">
+          <span id="audio-play-icon">▶ Ouvir</span>
+        </button>
+
+        <button id="audio-stop-btn" type="button" title="Parar leitura" class="px-3 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 text-xs font-semibold transition">
+          ⏹ Parar
+        </button>
+
+        <select id="audio-speed-select" aria-label="Velocidade da narração" class="px-2.5 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 text-xs font-semibold border border-slate-200/70 dark:border-slate-700 focus:outline-none">
+          <option value="0.85">0.85x</option>
+          <option value="1" selected>1.0x</option>
+          <option value="1.25">1.25x</option>
+          <option value="1.5">1.5x</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT INTERATIVO -->
+  <script>
+    (function () {
+      // ==========================================
+      // 1. TEMA CLARO / ESCURO (LIGHT & DARK MODE)
+      // ==========================================
+      const htmlEl = document.documentElement;
+      const themeToggleBtn = document.getElementById('theme-toggle-btn');
+      const themeLabel = document.getElementById('theme-label');
+
+      function applyTheme(theme) {
+        if (theme === 'dark') {
+          htmlEl.classList.add('dark');
+          if (themeLabel) themeLabel.textContent = 'Claro';
+        } else {
+          htmlEl.classList.remove('dark');
+          if (themeLabel) themeLabel.textContent = 'Escuro';
+        }
+        try {
+          localStorage.setItem('ebook-theme', theme);
+        } catch (e) {}
+      }
+
+      const savedTheme = localStorage.getItem('ebook-theme');
+      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      applyTheme(savedTheme || (prefersDark ? 'dark' : 'light'));
+
+      themeToggleBtn.addEventListener('click', () => {
+        const isDark = htmlEl.classList.contains('dark');
+        applyTheme(isDark ? 'light' : 'dark');
+      });
+
+      // ==========================================
+      // 2. CONTROLE DE TAMANHO DA FONTE
+      // ==========================================
+      let currentFontSize = 16.5;
+      const minFontSize = 14;
+      const maxFontSize = 22;
+
+      function updateFontSize(size) {
+        currentFontSize = Math.min(maxFontSize, Math.max(minFontSize, size));
+        document.documentElement.style.setProperty('--reader-font-size', currentFontSize + 'px');
+      }
+
+      document.getElementById('font-inc-btn').addEventListener('click', () => updateFontSize(currentFontSize + 1.5));
+      document.getElementById('font-dec-btn').addEventListener('click', () => updateFontSize(currentFontSize - 1.5));
+
+      // ==========================================
+      // 3. SUMÁRIO LATERAL (DRAWER) & BARRA DE PROGRESSO
+      // ==========================================
+      const tocDrawer = document.getElementById('toc-drawer');
+      const tocBackdrop = document.getElementById('toc-backdrop');
+      const tocToggleBtn = document.getElementById('toc-toggle-btn');
+      const tocCloseBtn = document.getElementById('toc-close-btn');
+      const tocLinks = document.querySelectorAll('.toc-link');
+
+      function openToc() {
+        tocDrawer.classList.remove('-translate-x-full');
+        tocBackdrop.classList.remove('hidden');
+      }
+
+      function closeToc() {
+        tocDrawer.classList.add('-translate-x-full');
+        tocBackdrop.classList.add('hidden');
+      }
+
+      tocToggleBtn.addEventListener('click', openToc);
+      tocCloseBtn.addEventListener('click', closeToc);
+      tocBackdrop.addEventListener('click', closeToc);
+      tocLinks.forEach(link => link.addEventListener('click', closeToc));
+
+      // Barra de progresso ao rolar a página
+      const progressBar = document.getElementById('reading-progress');
+      window.addEventListener('scroll', () => {
+        const scrollTop = window.scrollY || document.documentElement.scrollTop;
+        const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const pct = docHeight > 0 ? Math.min(100, Math.round((scrollTop / docHeight) * 100)) : 0;
+        if (progressBar) progressBar.style.width = pct + '%';
+      }, { passive: true });
+
+      // ==========================================
+      // 4. CHECKLIST INTERATIVO DE SEGURANÇA
+      // ==========================================
+      const checkboxes = document.querySelectorAll('.security-checkbox');
+      const meterBar = document.getElementById('security-meter-bar');
+      const levelLabel = document.getElementById('security-level-label');
+      const countLabel = document.getElementById('security-count-label');
+      const attitudeTip = document.getElementById('security-attitude-tip');
+      const resetChecklistBtn = document.getElementById('reset-checklist-btn');
+      const shareScoreBtn = document.getElementById('share-score-btn');
+      const shareScoreFeedback = document.getElementById('share-score-feedback');
+      let latestScorePct = 0;
+      let latestStatusText = 'Iniciante';
+
+      function updateChecklistUI() {
+        const total = checkboxes.length;
+        let checkedCount = 0;
+        const state = {};
+
+        checkboxes.forEach(cb => {
+          const id = cb.getAttribute('data-check-id');
+          state[id] = cb.checked;
+          if (cb.checked) checkedCount++;
+        });
+
+        const pct = total > 0 ? Math.round((checkedCount / total) * 100) : 0;
+        latestScorePct = pct;
+        if (meterBar) meterBar.style.width = pct + '%';
+        if (countLabel) countLabel.textContent = `${checkedCount} de ${total} concluídos`;
+
+        let statusText = 'Iniciante';
+        let tipMessage = 'Atenção: você ainda está vulnerável a golpes comuns. Comece ativando a verificação em duas etapas e o PIN do chip!';
+        if (pct >= 100) {
+          statusText = 'Blindado! Parabéns';
+          tipMessage = 'Excelente! Você adotou uma postura preventiva exemplar e reduziu drasticamente os riscos digitais.';
+        } else if (pct >= 75) {
+          statusText = 'Avançado';
+          tipMessage = 'Ótimo progresso! Faltam apenas alguns ajustes finos para deixar seu aparelho totalmente blindado.';
+        } else if (pct >= 40) {
+          statusText = 'Intermediário';
+          tipMessage = 'Bom caminho! Você já saiu da zona de maior risco, mas ainda vale reforçar a proteção antifurto e os backups.';
+        }
+
+        latestStatusText = statusText;
+        if (levelLabel) levelLabel.textContent = `Nível de Proteção: ${statusText} (${pct}%)`;
+        if (attitudeTip) attitudeTip.textContent = tipMessage;
+
+        try {
+          localStorage.setItem('ebook-security-checklist', JSON.stringify(state));
+        } catch (e) {}
+      }
+
+      if (shareScoreBtn) {
+        shareScoreBtn.addEventListener('click', () => {
+          const shareText = `Acabei de testar a segurança do meu smartphone no e-book interativo "Proteja sua vida!" (de Fabiana Guimarães) e alcancei ${latestScorePct}% de proteção (Nível ${latestStatusText})! 🛡️📱 Teste o seu também: ${window.location.href}`;
+          if (navigator.share) {
+            navigator.share({
+              title: 'Meu Nível de Segurança Digital',
+              text: shareText,
+              url: window.location.href
+            }).catch(() => {});
+          } else {
+            const tempInput = document.createElement('textarea');
+            tempInput.value = shareText;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            try {
+              document.execCommand('copy');
+              shareScoreFeedback.classList.remove('hidden');
+              setTimeout(() => shareScoreFeedback.classList.add('hidden'), 2800);
+            } catch (err) {}
+            document.body.removeChild(tempInput);
+          }
+        });
+      }
+
+      // Carregar estado salvo
+      try {
+        const savedChecklist = JSON.parse(localStorage.getItem('ebook-security-checklist') || '{}');
+        checkboxes.forEach(cb => {
+          const id = cb.getAttribute('data-check-id');
+          if (savedChecklist[id]) cb.checked = true;
+          cb.addEventListener('change', updateChecklistUI);
+        });
+      } catch (e) {
+        checkboxes.forEach(cb => cb.addEventListener('change', updateChecklistUI));
+      }
+      updateChecklistUI();
+
+      if (resetChecklistBtn) {
+        resetChecklistBtn.addEventListener('click', () => {
+          checkboxes.forEach(cb => (cb.checked = false));
+          updateChecklistUI();
+        });
+      }
+
+      // ==========================================
+      // 5. ÁUDIO LEITOR INTEGRADO (WEB SPEECH API)
+      // ==========================================
+      const synth = window.speechSynthesis;
+      const playPauseBtn = document.getElementById('audio-play-pause-btn');
+      const playIconSpan = document.getElementById('audio-play-icon');
+      const stopBtn = document.getElementById('audio-stop-btn');
+      const speedSelect = document.getElementById('audio-speed-select');
+      const statusText = document.getElementById('audio-status-text');
+
+      let speakQueue = [];
+      let currentIndex = 0;
+      let isPlaying = false;
+      let isPaused = false;
+
+      function clearHighlights() {
+        document.querySelectorAll('.speaking-active').forEach(el => {
+          el.classList.remove('speaking-active');
+        });
+      }
+
+      function getBestPtBrVoice() {
+        if (!synth) return null;
+        const voices = synth.getVoices();
+        return (
+          voices.find(v => v.lang === 'pt-BR' && v.name.toLowerCase().includes('google')) ||
+          voices.find(v => v.lang === 'pt-BR') ||
+          voices.find(v => v.lang.startsWith('pt')) ||
+          null
+        );
+      }
+
+      function stopReading() {
+        if (synth) synth.cancel();
+        isPlaying = false;
+        isPaused = false;
+        speakQueue = [];
+        currentIndex = 0;
+        clearHighlights();
+        playIconSpan.textContent = '▶ Ouvir';
+        statusText.textContent = 'Pronto para narrar • Clique em Ouvir';
+      }
+
+      function speakNextItem() {
+        if (!synth) {
+          statusText.textContent = 'Áudio leitor não suportado neste navegador.';
+          return;
+        }
+
+        if (currentIndex >= speakQueue.length) {
+          stopReading();
+          statusText.textContent = 'Leitura concluída!';
+          return;
+        }
+
+        clearHighlights();
+        const item = speakQueue[currentIndex];
+        item.element.classList.add('speaking-active');
+        item.element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+        statusText.textContent = `Lendo: ${item.chapterTitle}`;
+        playIconSpan.textContent = '⏸ Pausar';
+
+        const utterance = new SpeechSynthesisUtterance(item.text);
+        utterance.lang = 'pt-BR';
+        utterance.rate = parseFloat(speedSelect.value) || 1.0;
+
+        const ptVoice = getBestPtBrVoice();
+        if (ptVoice) utterance.voice = ptVoice;
+
+        utterance.onend = () => {
+          if (isPlaying && !isPaused) {
+            currentIndex++;
+            speakNextItem();
+          }
+        };
+
+        utterance.onerror = () => {
+          if (isPlaying && !isPaused) {
+            currentIndex++;
+            speakNextItem();
+          }
+        };
+
+        synth.speak(utterance);
+      }
+
+      function buildQueueFromElements(elements) {
+        const queue = [];
+        elements.forEach(el => {
+          const section = el.closest('.chapter-section');
+          const chapterTitle = section ? section.getAttribute('data-chapter-title') : 'Introdução';
+          const cleanText = el.innerText.replace(/\s+/g, ' ').trim();
+          if (cleanText.length > 0) {
+            queue.push({ element: el, text: cleanText, chapterTitle });
+          }
+        });
+        return queue;
+      }
+
+      window.startFullReading = function () {
+        stopReading();
+        const allSpeakables = Array.from(document.querySelectorAll('.speakable'));
+        speakQueue = buildQueueFromElements(allSpeakables);
+        if (speakQueue.length === 0) return;
+        isPlaying = true;
+        isPaused = false;
+        currentIndex = 0;
+        speakNextItem();
+      };
+
+      window.playChapterById = function (chapterId) {
+        stopReading();
+        const section = document.getElementById(chapterId);
+        if (!section) return;
+        const chapterSpeakables = Array.from(section.querySelectorAll('.speakable'));
+        speakQueue = buildQueueFromElements(chapterSpeakables);
+        if (speakQueue.length === 0) return;
+        isPlaying = true;
+        isPaused = false;
+        currentIndex = 0;
+        speakNextItem();
+      };
+
+      playPauseBtn.addEventListener('click', () => {
+        if (!synth) return;
+
+        if (!isPlaying) {
+          window.startFullReading();
+          return;
+        }
+
+        if (isPaused) {
+          synth.resume();
+          isPaused = false;
+          playIconSpan.textContent = '⏸ Pausar';
+          statusText.textContent = `Lendo: ${speakQueue[currentIndex]?.chapterTitle || ''}`;
+        } else {
+          synth.pause();
+          isPaused = true;
+          playIconSpan.textContent = '▶ Continuar';
+          statusText.textContent = 'Narração pausada';
+        }
+      });
+
+      stopBtn.addEventListener('click', stopReading);
+
+      speedSelect.addEventListener('change', () => {
+        if (isPlaying && !isPaused && synth) {
+          synth.cancel();
+          speakNextItem();
+        }
+      });
+
+      if (synth && synth.onvoiceschanged !== undefined) {
+        synth.onvoiceschanged = getBestPtBrVoice;
+      }
+
+      // ==========================================
+      // 6. COPIAR LINK DO E-BOOK
+      // ==========================================
+      const copyLinkBtn = document.getElementById('copy-link-btn');
+      const copyFeedback = document.getElementById('copy-feedback');
+
+      if (copyLinkBtn) {
+        copyLinkBtn.addEventListener('click', () => {
+          const tempInput = document.createElement('input');
+          tempInput.value = window.location.href;
+          document.body.appendChild(tempInput);
+          tempInput.select();
+          try {
+            document.execCommand('copy');
+            copyFeedback.classList.remove('hidden');
+            setTimeout(() => copyFeedback.classList.add('hidden'), 2500);
+          } catch (err) {}
+          document.body.removeChild(tempInput);
+        });
+      }
+
+      // ==========================================
+      // 7. MODAL DE EMERGÊNCIA (ROUBO OU PERDA)
+      // ==========================================
+      const emergencyModal = document.getElementById('emergency-modal');
+      const emergencyOpenBtn = document.getElementById('emergency-open-btn');
+      const emergencyCloseBtn = document.getElementById('emergency-close-btn');
+      const emergencyDoneBtn = document.getElementById('emergency-done-btn');
+
+      window.openEmergencyModal = function () {
+        if (!emergencyModal) return;
+        emergencyModal.classList.remove('hidden');
+        emergencyModal.classList.add('flex');
+      };
+
+      function closeEmergencyModal() {
+        if (!emergencyModal) return;
+        emergencyModal.classList.add('hidden');
+        emergencyModal.classList.remove('flex');
+      }
+
+      if (emergencyOpenBtn) emergencyOpenBtn.addEventListener('click', window.openEmergencyModal);
+      if (emergencyCloseBtn) emergencyCloseBtn.addEventListener('click', closeEmergencyModal);
+      if (emergencyDoneBtn) emergencyDoneBtn.addEventListener('click', closeEmergencyModal);
+      if (emergencyModal) {
+        emergencyModal.addEventListener('click', (e) => {
+          if (e.target === emergencyModal) closeEmergencyModal();
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
